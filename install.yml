@@ -106,15 +106,15 @@
       apt_repository: repo='ppa:cwchien/gradle'
       become: yes
       become_method: sudo
-      
+
     # Base packages
     - name: Install base system packages
       apt: name={{ item }} state=latest
       become: yes
       become_method: sudo
-      with_items:  
+      with_items:
         - build-essential
-        - fontconfig-infinality      
+        - fontconfig-infinality
         - subversion
         - bzr
         - openjdk-8-jdk
@@ -122,18 +122,18 @@
         - build-essential
         - cloc
         - nodejs
-        - heroku-toolbelt    
+        - heroku-toolbelt
         - python
         - python-dev
         - python-setuptools
-        - libpq-dev 
+        - libpq-dev
         - zsh
         - git
         - git-flow
         - mercurial
         - curl
         - vim
-        - unzip        
+        - unzip
         - openvpn
         - golang
         - docker-engine
@@ -153,18 +153,18 @@
         - ruby2.3-dev
         - gradle
         - python-pip
-        - qemu-kvm 
+        - qemu-kvm
         - libvirt-bin
         - virt-manager
-        - libxslt-dev 
-        - libxml2-dev 
-        - libvirt-dev 
+        - libxslt-dev
+        - libxml2-dev
+        - libvirt-dev
         - zlib1g-dev
     - name: Install external base system packages
       apt: deb={{ item }} state=present
       become: yes
       become_method: sudo
-      with_items:  
+      with_items:
         - https://releases.hashicorp.com/vagrant/1.8.4/vagrant_1.8.4_x86_64.deb
         - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         - https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.02.12_amd64.deb
@@ -174,7 +174,7 @@
       apt: name={{ item }} state=absent
       become: yes
       become_method: sudo
-      with_items: 
+      with_items:
         - openjdk-7-jre-headless
         - openjdk-7-jre
 
