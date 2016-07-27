@@ -139,7 +139,6 @@
         - docker-engine
         - numix-gtk-theme
         - numix-icon-theme-circle
-        - numix-wallpaper-notd
         - moka-icon-theme
         - unity-tweak-tool
         - arc-theme
@@ -160,6 +159,7 @@
         - libxml2-dev
         - libvirt-dev
         - zlib1g-dev
+        - smartmontools
     - name: Install external base system packages
       apt: deb={{ item }} state=present
       become: yes
