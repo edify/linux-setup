@@ -160,6 +160,7 @@
         - libvirt-dev
         - zlib1g-dev
         - smartmontools
+        - fonts-hack-ttf
     - name: Install external base system packages
       apt: deb={{ item }} state=present
       become: yes
@@ -169,6 +170,7 @@
         - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         - https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.0-amd64.deb
         - https://atom-installer.github.com/v1.8.0/atom-amd64.deb
+        - https://github.com/prey/prey-node-client/releases/download/v1.6.1/prey_1.6.1_i386.deb
 
     - name: Remove old versions base packages
       apt: name={{ item }} state=absent
