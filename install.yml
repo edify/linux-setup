@@ -165,7 +165,7 @@
       become: yes
       become_method: sudo
       with_items:
-        - https://releases.hashicorp.com/vagrant/1.8.4/vagrant_1.8.4_x86_64.deb
+        - https://releases.hashicorp.com/vagrant/1.8.5/vagrant_1.8.5_x86_64.deb
         - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         - https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.02.12_amd64.deb
         - https://downloads.slack-edge.com/linux_releases/slack-desktop-2.0.6-amd64.deb
