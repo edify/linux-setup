@@ -13,5 +13,5 @@
 # limitations under the License.
 ---
 # Your run is described here
-- include: install.yml
+- include: kubuntu-install.yml
 - include: configuration.yml
