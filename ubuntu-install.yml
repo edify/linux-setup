@@ -15,7 +15,7 @@
 # Here we describe every software we may want to install
 - hosts: all
   tasks:
-    - lineinfile: dest=/etc/apt/apt.conf regexp="^Acquire::http::Proxy \"http://192.168.241.21:3142/\"; state=absent
+    - lineinfile: dest=/etc/apt/apt.conf regexp="^Acquire::http::Proxy \"http://192.168.241.21:3142/\";" state=absent
       become: yes
       become_method: sudo
     # Edify Debian repo
