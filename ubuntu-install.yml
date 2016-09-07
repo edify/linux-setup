@@ -96,12 +96,6 @@
       become: yes
       become_method: sudo
 
-    # LibreOffice
-    - name: Install LibreOffice repo
-      apt_repository: repo='ppa:libreoffice/ppa'
-      become: yes
-      become_method: sudo
-
     # Ubuntu Make
     - name: Install Ubuntu Make repo
       apt_repository: repo='ppa:ubuntu-desktop/ubuntu-make'
