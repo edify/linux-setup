@@ -79,22 +79,27 @@
       apt_repository: repo='ppa:numix/ppa'
       become: yes
       become_method: sudo
+      when: kubuntu == "false"
 
     # Arc
     - name: Install Arc Theme repo key
       apt_key: url=http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key state=present
       become: yes
       become_method: sudo
+      when: kubuntu == "false"
+
     - name: Install Arc Theme repo
       apt_repository: repo='deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' state=present
       become: yes
       become_method: sudo
+      when: kubuntu == "false"
 
     # Moka
     - name: Install Moka repo
       apt_repository: repo='ppa:moka/stable'
       become: yes
       become_method: sudo
+      when: kubuntu == "false"
 
     # Ubuntu Make
     - name: Install Ubuntu Make repo
@@ -114,7 +119,19 @@
       become: yes
       become_method: sudo
 
-    # Base packages
+    # Base packages Ubuntu only
+    - name: Install base system packages for Ubuntu desktop only
+      apt: name={{ item }} state=latest
+      become: yes
+      become_method: sudo
+      when: kubuntu == "false"
+      with_items:
+        - numix-gtk-theme
+        - numix-icon-theme-circle
+        - moka-icon-theme
+        - unity-tweak-tool
+        - arc-theme
+
     - name: Install base system packages
       apt: name={{ item }} state=latest
       become: yes
@@ -126,27 +143,23 @@
         - heroku-toolbelt
         - golang
         - docker-engine
-        - numix-gtk-theme
-        - numix-icon-theme-circle
-        - moka-icon-theme
-        - unity-tweak-tool
-        - arc-theme
         - libreoffice
         - ubuntu-make
         - ruby2.3
         - ruby2.3-dev
         - gradle
         - alpha
+
     - name: Install external base system packages
       apt: deb={{ item }} state=present
       become: yes
       become_method: sudo
       with_items:
+        - https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.2-amd64.deb
         - https://releases.hashicorp.com/vagrant/1.8.5/vagrant_1.8.5_x86_64.deb
         - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        - https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.0-amd64.deb
-        - https://atom-installer.github.com/v1.8.0/atom-amd64.deb
-        - https://github.com/prey/prey-node-client/releases/download/v1.6.1/prey_1.6.1_i386.deb
+        - https://atom-installer.github.com/v1.10.2/atom-amd64.deb
+        - https://github.com/prey/prey-node-client/releases/download/v1.6.1/prey_1.6.3_amd64.deb
 
     - name: Remove old versions base packages
       apt: name={{ item }} state=absent

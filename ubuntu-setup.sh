@@ -8,4 +8,4 @@ if [ ! -x /usr/bin/ansible ]; then
 fi
 
 #Run Ansible
-PYTHONIOENCODING='utf-8' ansible-playbook ubuntu-desktop.yml --ask-become-pass --extra-vars "artifactory_username=$ARTIFACTORY_USERNAME artifactory_password=$ARTIFACTORY_PASSWORD"
+PYTHONIOENCODING='utf-8' ansible-playbook ubuntu-desktop.yml --ask-become-pass --extra-vars "artifactory_username=$ARTIFACTORY_USERNAME artifactory_password=$ARTIFACTORY_PASSWORD kubuntu=false"
