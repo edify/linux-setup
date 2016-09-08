@@ -159,7 +159,7 @@
         - https://releases.hashicorp.com/vagrant/1.8.5/vagrant_1.8.5_x86_64.deb
         - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         - https://atom-installer.github.com/v1.10.2/atom-amd64.deb
-        - https://github.com/prey/prey-node-client/releases/download/v1.6.1/prey_1.6.3_amd64.deb
+        - https://github.com/prey/prey-node-client/releases/download/v1.6.3/prey_1.6.3_amd64.deb
 
     - name: Remove old versions base packages
       apt: name={{ item }} state=absent
