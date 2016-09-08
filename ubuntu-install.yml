@@ -143,7 +143,6 @@
         - heroku-toolbelt
         - golang
         - docker-engine
-        - libreoffice
         - ubuntu-make
         - ruby2.3
         - ruby2.3-dev
