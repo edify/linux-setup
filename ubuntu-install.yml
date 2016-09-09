@@ -190,6 +190,10 @@
         - standard
 
     # Python pip
+    - name: Update pip
+      pip: name=pip extra_args='--upgrade'
+      become: yes
+
     - name: Install Python pip default packages
       pip: name={{ item }} extra_args='--user'
       with_items:
@@ -212,10 +216,10 @@
         - { package: github.com/constabulary/gb/... }
 
     # Heroku plugins
-    - name: Install Heroku plugins
-      command: heroku plugins:install {{ item }}
-      with_items:
-        - https://github.com/heroku/heroku-pg-extras.git
+    #- name: Install Heroku plugins
+    #  command: heroku plugins:install {{ item }}
+    #  with_items:
+    #    - https://github.com/heroku/heroku-pg-extras.git
 
     # Vagrant plugins
     - name: Install Vagrant plugins
