@@ -159,6 +159,7 @@
         - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         - https://atom-installer.github.com/v1.10.2/atom-amd64.deb
         - https://github.com/prey/prey-node-client/releases/download/v1.6.3/prey_1.6.3_amd64.deb
+        - https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_1.7.0.1_amd64.deb
 
     - name: Remove old versions base packages
       apt: name={{ item }} state=absent
@@ -225,6 +226,15 @@
         - { package: github.com/zmb3/gogetdoc }
         - { package: github.com/josharian/impl }
         - { package: github.com/constabulary/gb/... }
+
+    - name: Jetbrains IDEs
+      command: umake ide {{ item }} ~/.local/share/umake/ide/{{ item }}
+      with_items:
+        - webstorm
+        - rubymine
+        - phpstorm
+        - idea-ultimate
+        - pycharm-professional
 
     # Heroku plugins
     #- name: Install Heroku plugins
