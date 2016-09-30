@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ---
-# Configure your freshly installed software
 - hosts: all
   tasks:
     # Oh-My-Zsh
@@ -50,22 +49,6 @@
 
     - name: create ~/Projects directory
       file: state=directory path="~/Projects"
-
-    # SSH config
-    - name: Disable empty password login
-      lineinfile: dest=/etc/ssh/sshd_config regexp="^#?PermitEmptyPasswords" line="PermitEmptyPasswords no"
-      become: yes
-      become_method: sudo
-
-    - name: Disable remote root login
-      lineinfile: dest=/etc/ssh/sshd_config regexp="^#?PermitRootLogin" line="PermitRootLogin no"
-      become: yes
-      become_method: sudo
-
-    - name: Disable password login
-      lineinfile: dest=/etc/ssh/sshd_config regexp="^#?PasswordAuthentication" line="PasswordAuthentication no"
-      become: yes
-      become_method: sudo
 
     # User
     - name: Modify current user groups and shell

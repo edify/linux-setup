@@ -13,5 +13,5 @@
 # limitations under the License.
 ---
 # Your run is described here
-- include: ubuntu-install.yml
-- include: configuration.yml
+- include: base-install.yml
+- include: base-configuration.yml
