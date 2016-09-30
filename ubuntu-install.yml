@@ -19,12 +19,22 @@
       become: yes
       become_method: sudo
     # Edify Debian repo
-    - name: Install Edfiy repo key
+    - name: Install Edify repo key
       apt_key: url='https://{{artifactory_username}}:{{artifactory_password}}@edify.jfrog.io/edify/api/gpg/key/public' state=present
       become: yes
       become_method: sudo
     - name: Install Edify repo
       apt_repository: repo='deb https://{{artifactory_username}}:{{artifactory_password}}@edify.jfrog.io/edify/debian-local stable main'
+      become: yes
+      become_method: sudo
+
+    # Skype
+    - name: Install Skype repo key
+      apt_key: url='https://repo.skype.com/data/SKYPE-GPG-KEY' state=present
+      become: yes
+      become_method: sudo
+    - name: Install Skype repo
+      apt_repository: repo='deb https://repo.skype.com/deb stable main' state=present
       become: yes
       become_method: sudo
 
@@ -157,9 +167,8 @@
         - https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.2-amd64.deb
         - https://releases.hashicorp.com/vagrant/1.8.5/vagrant_1.8.5_x86_64.deb
         - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        - https://atom-installer.github.com/v1.10.2/atom-amd64.deb
         - https://github.com/prey/prey-node-client/releases/download/v1.6.3/prey_1.6.3_amd64.deb
-        - https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_1.7.0.1_amd64.deb
+        - https://github.com/atom/atom/releases/download/v1.10.2/atom-amd64.deb
 
     - name: Remove old versions base packages
       apt: name={{ item }} state=absent
