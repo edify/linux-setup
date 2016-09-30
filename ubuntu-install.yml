@@ -158,6 +158,7 @@
         - ruby2.3-dev
         - gradle
         - alpha
+        - skypeforlinux
 
     - name: Install external base system packages
       apt: deb={{ item }} state=present
