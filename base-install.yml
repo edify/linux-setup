@@ -159,16 +159,16 @@
         - gradle
         - alpha
         - skypeforlinux
+        - vagrant
+        - prey
+        - slack-desktop
 
     - name: Install external base system packages
       apt: deb={{ item }} state=present
       become: yes
       become_method: sudo
       with_items:
-        - https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.2-amd64.deb
-        - https://releases.hashicorp.com/vagrant/1.8.5/vagrant_1.8.5_x86_64.deb
         - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        - https://github.com/prey/prey-node-client/releases/download/v1.6.3/prey_1.6.3_amd64.deb
         - https://github.com/atom/atom/releases/download/v1.10.2/atom-amd64.deb
 
     - name: Remove old versions base packages
