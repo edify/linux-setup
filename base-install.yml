@@ -129,6 +129,16 @@
       become: yes
       become_method: sudo
 
+    # Google Chrome
+    - name: Install Google Chrome repo key
+      apt_key: url='https://dl-ssl.google.com/linux/linux_signing_key.pub' state=present
+      become: yes
+      become_method: sudo
+    - name: Install Google Chrome repo
+      apt_repository: repo='deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' state=present
+      become: yes
+      become_method: sudo
+
     # Base packages Ubuntu only
     - name: Install base system packages for Ubuntu desktop only
       apt: name={{ item }} state=latest
@@ -162,14 +172,8 @@
         - vagrant
         - prey
         - slack-desktop
-
-    - name: Install external base system packages
-      apt: deb={{ item }} state=present
-      become: yes
-      become_method: sudo
-      with_items:
-        - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        - https://github.com/atom/atom/releases/download/v1.10.2/atom-amd64.deb
+        - atom
+        - google-chrome-stable
 
     - name: Remove old versions base packages
       apt: name={{ item }} state=absent
