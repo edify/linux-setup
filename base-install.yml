@@ -174,12 +174,52 @@
         - slack-desktop
         - atom
         - google-chrome-stable
+        - openssh-server
+        - vim
+        - build-essential
+        - subversion
+        - bzr
+        - tmux
+        - cloc
+        - zsh
+        - git
+        - git-flow
+        - python
+        - python-dev
+        - python-setuptools
+        - libpq-dev
+        - mercurial
+        - curl
+        - openvpn
+        - keychain
+        - p7zip-full
+        - xz-utils
+        - python-pip
+        - qemu-kvm
+        - libvirt-bin
+        - virt-manager
+        - libxslt-dev
+        - libxml2-dev
+        - libvirt-dev
+        - zlib1g-dev
+        - smartmontools
+        - fonts-hack-ttf
+        - apt-transport-https
 
     - name: Remove old versions base packages
-      apt: name={{ item }} state=absent
+      apt: name={{ item }} state=absent purge=yes
       become: yes
       become_method: sudo
       with_items:
         - openjdk-7-jre-headless
         - openjdk-7-jre
+        - gnome-games-common
+        - example-content
+        - firefox
+        - xul-ext-ubufox
+        - rhythmbox
+        - thunderbird-gnome-support
+        - thunderbird
+        - totem
+        - transmission-gtk
 
