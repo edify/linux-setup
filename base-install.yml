@@ -34,7 +34,7 @@
       become: yes
       become_method: sudo
     - name: Install Skype repo
-      apt_repository: repo='deb https://repo.skype.com/deb stable main' state=present
+      apt_repository: repo='deb https://repo.skype.com/deb stable main' filename='skype-stable' state=present
       become: yes
       become_method: sudo
 
@@ -135,7 +135,7 @@
       become: yes
       become_method: sudo
     - name: Install Google Chrome repo
-      apt_repository: repo='deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' state=present
+      apt_repository: repo='deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' filename='google-chrome' state=present
       become: yes
       become_method: sudo
 
